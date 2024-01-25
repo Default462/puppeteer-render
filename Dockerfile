@@ -4,9 +4,9 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
 
 WORKDIR /usr/src/app
-
+RUN chmod u+w .
 COPY package*.json ./
 RUN npm ci
 COPY . .
-CMD [ "sudo", "node", "index.js" ]
+CMD [ "node", "index.js" ]
 
